@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:16:00 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/14 12:27:33 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/15 11:51:59 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int ft_isalpha(int charac)
         { 
         is_alpha = 1;
         }
+        
     return  (is_alpha);
 }
 // #include <ctype.h>

@@ -6,33 +6,31 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:16:00 by juagomez          #+#    #+#             */
-/*   Updated: 2024/04/23 12:17:05 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/14 12:27:33 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+/* #include <unistd.h>
 static  void ft_putchar (char caracter)
     {
         write(1, &caracter, 1);
-    }
+    } */
 
 // https://42-cursus.gitbook.io/guide/rank-00/libft/libc-functions/ft_isalpha
 // devuelve 0 si caracter 'int 'es alfabetico. si no, distinto 0
-int ft_isalpha(int  caracter)
-    {   
-        unsigned int is_alpha;
+int ft_isalpha(int charac)
+{
+    unsigned int    is_alpha;
 
-        is_alpha = 0;
-        if ((caracter >= 'A' && caracter <= 'Z') || (caracter >= 'a' && caracter <= 'z'))
-            {
-                is_alpha = 1;
-            }
-        return (is_alpha);
-    }
-
-#include <ctype.h>
-
-int    main(void)
+    is_alpha = 0;
+    if ((charac >= 'A' && charac <= 'Z') || (charac >= 'a' && charac <= 'z'))
+        { 
+        is_alpha = 1;
+        }
+    return  (is_alpha);
+}
+// #include <ctype.h>
+/* int    main(void)
 {
     int caracter1;
     int caracter2;
@@ -51,4 +49,4 @@ int    main(void)
     ft_putchar('\n');
 
     return 0;
-}
+} */

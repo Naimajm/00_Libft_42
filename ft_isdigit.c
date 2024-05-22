@@ -10,29 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+//#include <unistd.h>
 
-static  void    ft_putchar(char caracter)
+/*static  void    ft_putchar(char caracter)
 {
     write(1, &caracter, 1);
-}
+}*/
 
 // retorna 0 si valor char es digito (0-9)
-int ft_isdigit(int  digit)
+int	ft_isdigit(int digit)
 {
     unsigned int    is_digit;
-
+    
     is_digit = 0;
     if (digit >= '0' && digit <= '9')
-    {
-        is_digit = 1;
-    }
-    return (is_digit);
+	{
+		is_digit = 1;
+	}
+	return (is_digit);
 }
 
-#include <ctype.h>
+//#include <ctype.h>
 
-int main(void)
+/*int main(void)
 {
     int digit1;
     int digit2;
@@ -51,4 +51,4 @@ int main(void)
     ft_putchar('\n');
 
     return 0;
-}
+}*/

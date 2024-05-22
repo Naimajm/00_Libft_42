@@ -29,7 +29,7 @@ void    *ft_bzero(void *dest, size_t len)
 /* #include <stdio.h>
 #include <strings.h> */
 
-int main(void)
+/* int main(void)
 {   
     char str[] = "HolaCaracola";
     size_t n = 3;
@@ -42,5 +42,5 @@ int main(void)
     printf("test 2 ft_bzero %s \n", ft_bzero(str, nNull));
 
     return (0);
-}
+}*/
 

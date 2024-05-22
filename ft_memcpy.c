@@ -29,9 +29,9 @@ void    *ft_memcpy(void *dest, const void *src, size_t n)
     return (dest);
 }
 
-#include <string.h>
+// #include <string.h>
 
-int main(void)
+/* int main(void)
 {
     char    strSrc[] = "HolaCaracola";
     char    strDest[] = "Adios";
@@ -43,8 +43,8 @@ int main(void)
     printf("test 1 memcpy %s \n", memcpy(strDest, strSrc, n)); 
     printf("test 1 ft_memcpy %s \n", ft_memcpy(strDest, strSrc, n));
 
-    /*printf("test 1 memcpy %s \n", memcpy(strNullDest, strNullSrc, n)); 
-    printf("test 1 ft_memcpy %s \n", ft_memcpy(strNullDest, strNullSrc, n));*/
+    //printf("test 1 memcpy %s \n", memcpy(strNullDest, strNullSrc, n)); 
+    //printf("test 1 ft_memcpy %s \n", ft_memcpy(strNullDest, strNullSrc, n));
 
     return (0);
-}
+} */

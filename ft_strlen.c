@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <unistd.h>
 
-void    ft_putchar(char caracter)
+/* void    ft_putchar(char caracter)
 {
     write(1, &caracter, 1);
-}
+} */
 
 // retorna longitud del string
 int ft_strlen(char *string)
@@ -27,9 +27,9 @@ int ft_strlen(char *string)
     return (contador);
 }
 
-#include <string.h>
+// #include <string.h>
 
-int main(void)
+/* int main(void)
 {
     char    string1[10] = "HolaCla";
     char    string2[8] = "Hola";
@@ -45,4 +45,4 @@ int main(void)
     ft_putchar('\n');
 
     return (0);
-}
+} */

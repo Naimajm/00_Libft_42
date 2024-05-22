@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <unistd.h>
 #include <stdio.h>
 
 // escribe 'len' bytes de valor 'caracter' en la cadena 'dest'
@@ -36,9 +36,9 @@ void *ft_memset(void *dest, int caracter, size_t len)
     return (dest);
 }
 
-#include <string.h>
+// #include <string.h>
 
-int main(void)
+/* int main(void)
 {
     char    str1[] = "HolaCara";
     char    str2[] = "Parapapa";
@@ -53,4 +53,4 @@ int main(void)
     printf("test 2 %s \n", ft_memset(str2, caracter, len2));
 
     return (0);
-}
+} */

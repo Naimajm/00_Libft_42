@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <unistd.h>
 
-static void ft_putchar(char caracter)
+/* static void ft_putchar(char caracter)
 {
     write(1, &caracter, 1);
-}
+} */
 
 static int  ft_isdigit(int caracter)
 {
@@ -59,9 +59,9 @@ int ft_isalnum(int caracter)
     return (is_alnum);
 }
 
-#include <ctype.h>
+// #include <ctype.h>
 
-int main(void)
+/* int main(void)
 {   
     int caracter1;
     int caracter2;
@@ -86,4 +86,4 @@ int main(void)
     ft_putchar('\n');    
     
     return 0;
-}
+} */

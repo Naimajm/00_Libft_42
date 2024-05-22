@@ -45,8 +45,8 @@ int ft_isprint(int caracter);
 // rellena con ceros n bytes en string destino
 void    *ft_bzero(void *dest, size_t len);
 
-// copia n bytes desde 'scr' a 'dest' . superposicion
-void    *ft_memcpy(void *dest, const void *src, size_t n);
+// escribe 'len' bytes de valor 'caracter' en la cadena 'dest'
+void *ft_memset(void *dest, int caracter, size_t len);
 
 // copia n bytes desde 'scr' a 'dest' . superposicion
 void    *ft_memcpy(void *dest, const void *src, size_t n);

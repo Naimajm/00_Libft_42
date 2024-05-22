@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
+// # include <unistd.h>
 
-void    ft_putchar(char caracter)
+/* void    ft_putchar(char caracter)
 {
     write(1, &caracter, 1);
-}
+}*/ 
 
 // retorna distinto 0 si caracter tiene valor octal entre 0 y 177 (decimal 000 y 127)
 // tabla valores ascii de control + imprimibles
@@ -33,7 +33,7 @@ int ft_isascii(int caracter)
 #include <ctype.h>
 
 // no consigo testear con caracter 'ñ'
-int main(void)
+/* int main(void)
 {
     int caracter1;
     int caracter2;
@@ -52,4 +52,4 @@ int main(void)
     ft_putchar('\n');
 
     return (0);
-}
+} */

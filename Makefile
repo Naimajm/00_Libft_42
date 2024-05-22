@@ -13,11 +13,13 @@ CC := cc
 # flags para compilacion
 CFLAGS := -Wall -Wextra -Werror
 
+# listado funciones a incluir en biblioteca
+SRC := ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
+	ft_bzero.c ft_memset.c ft_memcpy.c \
+	ft_strlen.c \
+
 # Nombre salida archivo biblioteca
 NAME := libft.a
-
-# listado funciones a incluir en biblioteca
-SRC := ft_isalpha.c ft_isdigit.c
 
 # lista nombres archivos .o en base a archivos .c para generar programa
 OBJ_FILES := $(SRC:%.c= %.o)	
@@ -29,7 +31,7 @@ OBJ_FILES := $(SRC:%.c= %.o)
 # opciones 'AR' -c --> crear el archivo si no existe
 # opciones 'AR' -s --> escribir un índice en el archivo para acelerar búsquedas
 $(NAME): $(OBJ_FILES)
-	AR rcs $(NAME) $(OBJ_FILES)
+	ar rcs $(NAME) $(OBJ_FILES)
 
 # all -> receta predeterminada para crear producto ppal de la compilacion
 # all: $(NAME) clean

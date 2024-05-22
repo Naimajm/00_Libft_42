@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+// #include <unistd.h>
 
-static  void    ft_putchar(char caracter)
+/* static  void    ft_putchar(char caracter)
 {
     write(1, &caracter, 1);
-}
+}*/
 
 // retorna distinto 0 si caracter ascii es imprimible (32-126) (espacio - ~)
 int ft_isprint(int caracter)
@@ -30,9 +30,9 @@ int ft_isprint(int caracter)
     return (is_print);
 }
 
-#include <ctype.h>
+// #include <ctype.h>
 
-int main(void)
+/* int main(void)
 {
     int caracter1;
     int caracter2;
@@ -51,4 +51,4 @@ int main(void)
     ft_putchar('\n');
 
     return (0);
-}
+} */

@@ -18,16 +18,16 @@
 }*/
 
 // retorna distinto 0 si caracter ascii es imprimible (32-126) (espacio - ~)
-int ft_isprint(int caracter)
+int	ft_isprint(int caracter)
 {
-    int is_print;
+	int	is_print;
 
-    is_print = 0;
-    if (caracter >= ' ' && caracter <= '~')
-    {
-        is_print = 1;
-    }
-    return (is_print);
+	is_print = 0;
+	if (caracter >= ' ' && caracter <= '~')
+	{
+		is_print = 1;
+	}
+	return (is_print);
 }
 
 // #include <ctype.h>

@@ -18,17 +18,16 @@ static  void ft_putchar (char caracter)
 
 // https://42-cursus.gitbook.io/guide/rank-00/libft/libc-functions/ft_isalpha
 // devuelve 0 si caracter 'int 'es alfabetico. si no, distinto 0
-int ft_isalpha(int charac)
+int	ft_isalpha(int charac)
 {
-    unsigned int    is_alpha;
+	unsigned int	is_alpha;
 
-    is_alpha = 0;
-    if ((charac >= 'A' && charac <= 'Z') || (charac >= 'a' && charac <= 'z'))
-        { 
-        is_alpha = 1;
-        }
-        
-    return  (is_alpha);
+	is_alpha = 0;
+	if ((charac >= 'A' && charac <= 'Z') || (charac >= 'a' && charac <= 'z'))
+	{
+		is_alpha = 1;
+	}
+	return (is_alpha);
 }
 // #include <ctype.h>
 /* int    main(void)

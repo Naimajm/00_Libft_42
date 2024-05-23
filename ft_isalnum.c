@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 11:52:48 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 13:45:24 by naima            ###   ########.fr       */
+/*   Updated: 2024/05/23 19:07:59 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
-
 #include "libft.h"
-
-/* static void ft_putchar(char caracter)
-{
-    write(1, &caracter, 1);
-} */
 
 int	ft_isalnum(int caract)
 {
@@ -39,9 +32,12 @@ int	ft_isalnum(int caract)
 	return (is_alnum);
 }
 
-// #include <ctype.h>
+/* static void ft_putchar(char caracter)
+{
+    write(1, &caracter, 1);
+}
 
-/* int main(void)
+int main(void)
 {   
     int caracter1;
     int caracter2;

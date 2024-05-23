@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:07:14 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 13:15:03 by naima            ###   ########.fr       */
+/*   Updated: 2024/05/23 18:29:00 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
-
-/* void    ft_putchar(char caracter)
-{
-    write(1, &caracter, 1);
-} */
+#include "libft.h"
 
 // retorna longitud del string
 int	ft_strlen(const char *string)
@@ -28,7 +23,10 @@ int	ft_strlen(const char *string)
 	return (contador);
 }
 
-// #include <string.h>
+/* void    ft_putchar(char caracter)
+{
+    write(1, &caracter, 1);
+} */
 
 /* int main(void)
 {

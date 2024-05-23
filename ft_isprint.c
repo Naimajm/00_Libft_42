@@ -6,16 +6,11 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 13:53:10 by juagomez          #+#    #+#             */
-/*   Updated: 2024/04/23 14:04:46 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/23 18:40:10 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include <unistd.h>
-
-/* static  void    ft_putchar(char caracter)
-{
-    write(1, &caracter, 1);
-}*/
+#include "libft.h"
 
 // retorna distinto 0 si caracter ascii es imprimible (32-126) (espacio - ~)
 int	ft_isprint(int caracter)
@@ -24,11 +19,14 @@ int	ft_isprint(int caracter)
 
 	is_print = 0;
 	if (caracter >= ' ' && caracter <= '~')
-	{
 		is_print = 1;
-	}
 	return (is_print);
 }
+
+/* static  void    ft_putchar(char caracter)
+{
+    write(1, &caracter, 1);
+}*/
 
 // #include <ctype.h>
 

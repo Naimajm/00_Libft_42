@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 10:52:46 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 13:25:16 by naima            ###   ########.fr       */
+/*   Updated: 2024/05/23 18:39:54 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//#include <unistd.h>
-
-/*static  void    ft_putchar(char caracter)
-{
-    write(1, &caracter, 1);
-}*/
 
 // retorna 0 si valor char es digito (0-9)
 int	ft_isdigit(int digit)
@@ -26,11 +19,14 @@ int	ft_isdigit(int digit)
 
 	is_digit = 0;
 	if (digit >= '0' && digit <= '9')
-	{
 		is_digit = 1;
-	}
 	return (is_digit);
 }
+
+/*static  void    ft_putchar(char caracter)
+{
+    write(1, &caracter, 1);
+}*/
 
 //#include <ctype.h>
 

@@ -1,32 +1,45 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/22 15:11:11 by naima             #+#    #+#             */
+/*   Updated: 2024/05/23 12:34:40 by naima            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
+#include "libft.h"
+
+//#include <stdio.h>
 
 // copia n bytes desde 'scr' a 'dest' . superposicion
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+/* declare a temporary pointer for dst + src */
+/* if src and dst are NULL, return dst */
+/* make dst tmp pointer equal to dst converted to unsigned char * */
+/* loop over the dst tmp pointer while we didn't reach n */
+/* set the current byte of dst tmp pointer equal 
+to current byte of src tmp pointer */
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    /* declare a temporary pointer for dst + src */
-    unsigned char *temp1;
-    unsigned char *temp2;
-    size_t indice;
+	unsigned char	*dest_ptr;
+	unsigned char	*src_ptr;
+	unsigned int	indice;
 
-    /* if src and dst are NULL, return dst */
-    if(src == NULL || dest == NULL)
-        return (dest);
-
-    /* make dst tmp pointer equal to dst converted to unsigned char * */
-    temp1 = (unsigned char *)dest;
-    /* make src tmp pointer equal to src converted to unsigned char * */
-    temp2 = (unsigned char *)src;
-    indice =0;
-
-    /* loop over the dst tmp pointer while we didn't reach n */
-    while (indice < n)
-    {   
-        /* set the current byte of dst tmp pointer equal to current byte of src tmp pointer */
-        temp1[indice] = temp2[indice];
-        indice++;
-    }
-    return (dest);
+	if (src == NULL && dest == NULL)
+	{
+		return (dest);
+	}
+	dest_ptr = (unsigned char *)dest;
+	src_ptr = (unsigned char *)src;
+	indice = 0;
+	while (indice < n)
+	{
+		dest_ptr[indice] = src_ptr[indice];
+		indice++;
+	}
+	return (dest_ptr);
 }
 
 // #include <string.h>

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:07:14 by juagomez          #+#    #+#             */
-/*   Updated: 2024/04/23 14:31:41 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/23 13:15:03 by naima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 } */
 
 // retorna longitud del string
-int ft_strlen(char *string)
-{   
-    int contador;
-    contador = 0;
-    while (string[contador] != '\0')
-        contador++;
-    return (contador);
+int	ft_strlen(const char *string)
+{
+	unsigned int	contador;
+
+	contador = 0;
+	while (string[contador] != '\0')
+		contador++;
+	return (contador);
 }
 
 // #include <string.h>

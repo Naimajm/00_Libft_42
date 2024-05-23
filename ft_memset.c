@@ -3,37 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
+/*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:32:57 by juagomez          #+#    #+#             */
-/*   Updated: 2024/04/30 12:28:37 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/23 12:49:58 by naima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 // #include <unistd.h>
-#include <stdio.h>
+//#include <stdio.h>
 
-// escribe 'len' bytes de valor 'caracter' en la cadena 'dest'
-void *ft_memset(void *dest, int caracter, size_t len)
+/* escribe 'len' bytes de valor 
+'caracter' en la cadena 'dest' ------------------------------- */
+
+/* declare a temporary unsigned char * */
+/* make this temporary variable equals to void *b converted to unsigned char */
+// asignacion string a dest -> casteo a 'unsigned char'
+/* loop on the temporary variable while we didn't reach len */
+/* in that loop, set the current byte equal to c converted to unsigned char */
+/* return void *b */
+void	*ft_memset(void *dest, int caracter, unsigned int len)
 {
-    /* declare a temporary unsigned char * */
-    unsigned char *temp;
+	unsigned char	*temp;
+	unsigned int	indice;
 
-    /* make this temporary variable equals to void *b converted to unsigned char */
-    // asignacion string a dest -> casteo a 'unsigned char'
-    temp = (unsigned char *)dest;
-
-    /* loop on the temporary variable while we didn't reach len */
-    size_t indice;
-    indice = 0;
-    while (indice < len)
-    {   
-        /* in that loop, set the current byte equal to c converted to unsigned char */
-        temp[indice] = (unsigned char)caracter;
-        indice++;
-    }
-    /* return void *b */   
-    return (dest);
+	temp = (unsigned char *)dest;
+	indice = 0;
+	while (indice < len)
+	{
+		temp[indice] = (unsigned char)caracter;
+		indice++;
+	}
+	return (dest);
 }
 
 // #include <string.h>

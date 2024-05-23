@@ -6,7 +6,7 @@
 /*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 15:11:11 by naima             #+#    #+#             */
-/*   Updated: 2024/05/23 12:34:40 by naima            ###   ########.fr       */
+/*   Updated: 2024/05/23 12:40:24 by naima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /* loop over the dst tmp pointer while we didn't reach n */
 /* set the current byte of dst tmp pointer equal 
 to current byte of src tmp pointer */
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
 	unsigned char	*dest_ptr;
 	unsigned char	*src_ptr;

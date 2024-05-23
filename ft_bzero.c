@@ -1,29 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naima <naima@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/23 12:58:23 by naima             #+#    #+#             */
+/*   Updated: 2024/05/23 13:10:00 by naima            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-// rellena con ceros n bytes en string destino
-void    *ft_bzero(void *dest, size_t len)
+// rellena con ceros n bytes en string destino --------
+
+/* declare a temporary pointer */
+/* make the temporary pointer equal to *s converted to a char * */
+/* loop on the temporary pointer while we didn't reach n characters */
+/* in that loop, set the current byte equal to 0 */
+void	*ft_bzero(void *dest, unsigned int len)
 {
-    /* declare a temporary pointer */
-    unsigned char *temp;
-    size_t index;
-    
-    /* make the temporary pointer equal to *s converted to a char * */
-    temp = (unsigned char *)dest;
-    index = 0;
+	unsigned char	*dest_ptr;
+	unsigned int	index;
 
-
-    if (len != 0)
-    {   
-        /* loop on the temporary pointer while we didn't reach n characters */
-        while (index < len)
-        {
-            /* in that loop, set the current byte equal to 0 */
-            temp[index] = 0;
-            index++;
-        }
-    }
-    return (dest);
+	dest_ptr = (unsigned char *)dest;
+	index = 0;
+	if (len != 0)
+	{
+		while (index < len)
+		{
+			dest_ptr[index] = 0;
+			index++;
+		}
+	}
+	return (dest);
 }
 
 /* #include <stdio.h>
@@ -43,4 +53,3 @@ void    *ft_bzero(void *dest, size_t len)
 
     return (0);
 }*/
-

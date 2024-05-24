@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 18:33:29 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/24 20:32:53 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,19 @@ void	*ft_bzero(void *dest, unsigned int len);
 // escribe 'len' bytes de valor 'caracter' en la cadena 'dest'
 void	*ft_memset(void *dest, int caracter, unsigned int len);
 
-// copia n bytes desde 'scr' a 'dest' . superposicion
+// copia n bytes desde 'scr' a 'dest' . superposicion de memoria
 void	*ft_memcpy(void *dest, const void *src, unsigned int n);
+
+/* copia un bloque de memoria desde el origen al destino, 
+manejando regiones de memoria superpuestas. */
+void	*ft_memmove(void *dest, const void *src, unsigned int num);
+
+// @brief Busca la primera aparición de un carácter específico en un bloque de memoria.
+// @param str: un puntero al bloque de memoria.
+// @param caracter: caracter a buscar Emi
+// @param num: número de bytes a buscar dentro del bloque de memoria.
+// @returns -> puntero (tipo void) a primera aparición del carácter en el bloque de memoria o NULL si no encuentra
+// void    *ft_memchr(const void *str, int caracter, unsigned int num);
 
 // FUNCIONES STRING  -----------------------------------
 // ----------------------------------------------------

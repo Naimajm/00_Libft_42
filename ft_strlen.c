@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:07:14 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 18:29:00 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:27:27 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // retorna longitud del string
 int	ft_strlen(const char *string)
 {
-	unsigned int	contador;
+	int	contador;
 
 	contador = 0;
 	while (string[contador] != '\0')

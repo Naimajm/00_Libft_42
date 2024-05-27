@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 11:23:51 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/27 13:40:50 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/27 14:06:59 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ char	*ft_strrchr(const char *str, int character)
 
 	len = (unsigned int) ft_strlen(str);
 	chr = (unsigned char) character;
-	while (len + 1 > 0)
+	if (str[len] == '\0' && str[len] == chr)
+		return ((char *)(str + len));
+	while (len > 0)
 	{
-		if (str[len] == chr)
-			return ((char *)(str + len));
+		if (str[len - 1] == chr)
+			return ((char *)(str + (len - 1)));
 		len--;
 	}
 	return (0);

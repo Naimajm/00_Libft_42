@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:56:34 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/29 21:00:05 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/29 22:21:08 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ char	*ft_substr(const char *str, unsigned int start, unsigned int len)
 		return (NULL);
 	if (start > str_len )
 		return (ft_strdup(""));
-	if ((start + len) > str_len)
+	if ((start + len) > str_len) 
 		len = str_len - start;
-	substr = ft_calloc(len + 1, sizeof(char));
+	substr = malloc(len + 1);
 	if (!substr)
 		return (NULL);	
 	while (substr_index < len)
@@ -55,6 +55,7 @@ char	*ft_substr(const char *str, unsigned int start, unsigned int len)
 		substr[substr_index] = str[start + substr_index];
 		substr_index++;
 	}
+	substr[substr_index] = '\0';
 	return (substr);
 }
 

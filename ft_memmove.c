@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:53:51 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/24 14:52:30 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/25 12:39:04 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 	/* si src y dst se superponen */
 	/* realiza un bucle mientras len es mayor que 0 y copia src en dst */
 	/* si src y dst no se superponen */
-	/* realiza un bucle mientras nuestro contador es menor que len y copia src en dst */
+	/* realiza un bucle mientras nuestro contador 
+	es menor que len y copia src en dst */
 	/* devuelve horario de verano */
-//  copia un bloque de memoria desde el origen al destino, manejando regiones de memoria superpuestas.
+
 void	*ft_memmove(void *dest, const void *src, unsigned int num)
 {
 	unsigned char	*dest_ptr;

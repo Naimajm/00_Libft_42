@@ -6,21 +6,21 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:07:14 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/27 13:27:27 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/29 15:18:24 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // retorna longitud del string
-int	ft_strlen(const char *string)
+unsigned int	ft_strlen(const char *string)
 {
-	int	contador;
+	int	count;
 
-	contador = 0;
-	while (string[contador] != '\0')
-		contador++;
-	return (contador);
+	count = 0;
+	while (string[count] != '\0')
+		count++;
+	return (count);
 }
 
 /* void    ft_putchar(char caracter)

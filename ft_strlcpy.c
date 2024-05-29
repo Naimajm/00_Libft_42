@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:11:58 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/27 17:13:02 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/27 18:38:42 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,3 @@ unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int destsize)
 	}
 	return (src_len);
 }
-
-/* unsigned int	ft_strlcpy(char *dst, const char *src, unsigned int dstsize)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (dstsize != 0)
-	{
-		while (src[i] && i < dstsize - 1)
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	while (src[i])
-		i++;
-	return (i);
-} */

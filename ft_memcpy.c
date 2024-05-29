@@ -6,19 +6,26 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 18:27:43 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 19:03:24 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/25 12:48:04 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// copia n bytes desde 'scr' a 'dest' . superposicion
-/* declare a temporary pointer for dst + src */
-/* if src and dst are NULL, return dst */
-/* make dst tmp pointer equal to dst converted to unsigned char * */
-/* loop over the dst tmp pointer while we didn't reach n */
-/* set the current byte of dst tmp pointer equal 
-to current byte of src tmp pointer */
+/* Copia un máximo de n bytes de src a dst. 
+Puede existir superposición de memoria.
+Esta función funciona como 'strcpy', excepto que 'memcpy' acepta 'void *' 
+como parámetros, por lo que podemos darle cualquier 
+tipo de puntero que queramos copiar. */
+
+/* declarar un puntero temporal para dst + src */
+/* si src y dst son NULL, devuelve dst */
+/* hacer que el puntero dst tmp sea igual a dst 
+convertido a unsigned char * */
+/* recorremos el puntero dst tmp mientras no llegamos a n */
+/* establece el byte actual del puntero dst tmp igual 
+al byte actual del puntero src tmp */
+
 void	*ft_memcpy(void *dest, const void *src, unsigned int n)
 {
 	unsigned char	*dest_ptr;

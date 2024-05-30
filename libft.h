@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/29 17:42:11 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:18:02 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,8 +119,56 @@ Si falla la asignación de memoria, la función devuelve NULL.
 */
 char	*ft_strdup(const char *str);
 
+/** 
+* @brief Extrae una subcadena de una cadena que comienza en el inicio 
+del índice con una longitud especificada len. Asigna memoria para la subcadena, 
+copia los caracteres de s a la subcadena y devuelve el puntero a la subcadena.
+* @param str: puntero a la cadena de origen.
+* @param start: índice inicial de la subcadena en la cadena de origen.
+* @param len: El índice del caracter en ’s’ desde el que empezar la substring.
+* @returns char * -> Si la asignación de memoria se realiza correctamente 
+o si len es cero, se devuelve un puntero a la subcadena asignada.
+Si s es NULL o si falla la asignación de memoria, se devuelve NULL.
+*/
+char	*ft_substr(const char *str, unsigned int start, unsigned int len);
+
+/** 
+* @brief Reserva con malloc() y devuelve una nueva
+string, formada por la concatenación de str1 y str2.
+* @param str1: 1º string.
+* @param str2: string a añadir a str1.
+* @returns char *-> nueva string.
+NULL si falla la reserva de memoria.
+*/
+char	*ft_strjoin( char const *str1, char const *str2);
+
+/** 
+* @brief Recorta los caracteres iniciales y finales de una cadena
+en función de un conjunto de caracteres determinado.
+* @param str1: puntero a la cadena que se va a recortar.
+* @param set: puntero al conjunto de caracteres que se van a recortar.
+* @returns char *-> Si la asignación de memoria se realiza correctamente 
+y la cadena recortada resultante no está vacía, se devuelve un puntero a la cadena recortada.
+Si str1 o set es NULL, o si falla la asignación de memoria, 
+o si la cadena recortada resultante está vacía, se devuelve NULL.
+*/
+char	*ft_strtrim(char const *str1, char const *set);
+
+/** 
+* @brief  Aplica una función a cada carácter de una cadena, 
+creando una nueva cadena con los resultados.
+* @param str: puntero a la cadena de entrada.
+* @param function: función que se aplicará a cada carácter.
+Toma un 'unsigned int' (el índice) y un char como parámetros, 
+y devuelve un nuevo carácter basado en el índice y el carácter de entrada.
+* @returns char *-> Una cadena asignada dinámicamente resultante de 
+la aplicación de la función a cada carácter de la cadena de entrada.
+Se devuelve NULL si falla la asignación de memoria o si la cadena de entrada es NULL.
+*/
+char	*ft_strmapi(char const *str, char (*function)(unsigned int, char));
+
 // FUNCIONES STRING  -----------------------------------
-// ----------------------------------------------------
+// -----------------------------------------------------
 
 /** 
 * @brief Convierte un carácter en minúscula a su equivalente en mayúscula.
@@ -213,6 +261,10 @@ en su valor entero correspondiente.
 o valor 0 como error.
 */
 int	ft_atoi(const char *str);
+
+
+
+
 
 // FUNCIONES LIST  -----------------------------------
 // ----------------------------------------------------

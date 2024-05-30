@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/30 22:09:55 by juagomez          #+#    #+#             */
+/*   Updated: 2024/05/30 22:28:09 by juagomez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+/* La función está diseñada para escribir un solo carácter en un descriptor 
+de archivo específico. Utiliza la llamada al sistema de escritura para enviar 
+el carácter al descriptor de archivo especificado y no devuelve ningún valor. */
+
+/* Si se proporciona un descriptor de archivo incorrecto o no válido, el 
+comportamiento no está definido. Puede provocar un error o una salida 
+inesperada. 
+Es esencial asegurarse de que el descriptor del archivo sea válido 
+y esté abierto antes de usarlo con ft_putchar_fd. */
+
+/* 1º parametro 'write' -> es el descriptor del archivo
+- 2º parametro 'write' -> la dirección del caracter 
+- 3º parametro 'write' -> 1 // se debe escribir un carácter */
+
+void	ft_putchar_fd(char character, int fd)
+{
+	write (fd, &character, 1);
+}

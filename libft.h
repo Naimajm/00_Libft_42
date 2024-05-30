@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/30 14:18:02 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/05/30 18:34:34 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ y devuelve un nuevo carácter basado en el índice y el carácter de entrada.
 la aplicación de la función a cada carácter de la cadena de entrada.
 Se devuelve NULL si falla la asignación de memoria o si la cadena de entrada es NULL.
 */
-char	*ft_strmapi(char const *str, char (*function)(unsigned int, char));
+//schar	*ft_strmapi(char const *str, char (*function)(unsigned int, char));
 
 // FUNCIONES STRING  -----------------------------------
 // -----------------------------------------------------

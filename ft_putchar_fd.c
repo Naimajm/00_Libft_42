@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 22:09:55 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/30 22:28:09 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/01 21:57:19 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,23 @@ void	ft_putchar_fd(char character, int fd)
 {
 	write (fd, &character, 1);
 }
+/* int	main(int argn, char **argv)
+{
+	if (argn == 2)
+	{
+		printf("argv0 : %s , argv1 : %s", argv[0], argv[1]);
+
+		int fd = open(argv[1], O_WRONLY);
+		ft_putchar_fd('J', fd);
+		close(fd);
+	}
+	return (0);
+} */
+
+/* int	main(void)
+{
+	int	fd = open("text.txt", O_RDWR);	
+	ft_putchar_fd('J', fd);
+	close(fd);
+	return (0);
+} */

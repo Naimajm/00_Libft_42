@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:03:18 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/03 10:01:42 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/03 21:31:08 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ igual que para una cadena: while(words[i] != 0). */
 
 // PROCESO
 /* -> FUNCION CONTAR PALABRAS -> cuántas palabras hay en la cadena, según el 
-delimitador */ 
+delimitador */
 /* -> CREAR ARRAY MATRICES -> suficientemente grande como para contener
 todas las palabras + 1 que podemos establecer en 0*/
 /* -> FUNCION DIVIDIR Y ASIGNAR ->  Asigne una cadena para cada palabra en 
@@ -37,16 +37,107 @@ nuestra matriz de palabras y copie las palabras en ella */
 /* FUNCION LIBERAR MEMORIA ->  Liberar todo si tenemos un error de asignación 
 de memoria. Cada elemento de la matriz así como la matriz  */
 
-static int	ft_word_count(char *str, char character);
+static int	ft_words_count(char const *str, char character);
 static int	ft_word_len(char const *str, char character, int index);
-/* static char	*fill_word();
-static char	*ft_free(); */
+static char	**ft_free_array(char **array);
+static char	**ft_split_w(char const *str, char c, unsigned char **array, int w_numbers);
 
-/* char	**ft_split(char const *str, char character)
+char	**ft_split(char const *str, char character)
 {
+	unsigned int	words_numbers;
+	unsigned char	**array;
 
-	return (0);
-} */
+	words_numbers = 0;
+	if (!str)
+		return (NULL);
+	words_numbers = ft_words_count(str, character);
+	array = (unsigned char **)malloc(sizeof(char *) * (words_numbers + 1));
+	if (!array)
+		return (NULL);
+	array = ft_split_w(str, character, array, words_numbers);
+	if (!array)
+	{
+		array = ft_free_array(array);
+		return (NULL);
+	}
+	return ((char **)array);
+}
+
+// FUNCION DIVIDIR Y ASIGNAR
+/**
+ * @brief dividir en piezas la cadena "str" dividida por el carácter "character"
+ * y copie cada pieza a una posición "array" consecutiva. 
+ * @param str String para dividir en pedazos. 
+ * Si "str" no existe -> fallo de segmentación!!.
+ * @param character el carácter separador
+ * @param array se asignó una matriz doble vacía cada pieza de "str".
+ * si "str" no existe -> fallo de segmentación!!.
+ * @param words_numbers la longitud de array.
+ * @return char** una matriz doble con un "pieza of str" en cada posición.
+ */
+static char	**ft_split_w(char const *str, char c, unsigned char **array, int w_numbers)
+{
+	int	str_index;
+	int	word_index;
+	int	word_len;
+
+	str_index = 0;
+	word_index = 0;
+	while (word_index < w_numbers)
+	{
+		while (str[str_index] != '\0' && str[str_index] == c)
+			str_index++;
+		word_len = ft_word_len(str, c, str_index);
+		if (!array[word_index])
+		{
+			ft_free_array(array);
+			return (NULL);
+		}
+		array[word_index] = ft_substr(str, str_index, word_len);
+		str_index = str_index + word_len;
+		word_len = 0;
+		word_index++;
+	}
+	array[word_index] = '\0';
+	return (array);
+}
+
+/* LIBERAR RESERVA MEMORIA DE ARRAY DE STRINGS */
+/* En este bucle, recorremos cada elemento de la matriz de palabras 
+y lo liberamos */
+/* Cuando liberamos cada elemento, podemos liberar matriz de palabras */
+static char	**ft_free_array(char **array)
+{
+	int	index;
+
+	index = 0;
+	if (array)
+	{
+		while (array[index])
+		{
+			free(array[index]);
+			array[index] = 0;
+			index++;
+		}
+		free(array);
+		array = 0;
+	}
+	return (array);
+}
+
+// CALCULA LONGITUD POR PALABRA
+static int	ft_word_len(char const *str, char character, int index)
+{
+	int	word_len;
+
+	word_len = 0;
+	while (str[index] != '\0' && str[index] != character)
+	{
+		word_len++;
+		index++;
+	}
+	return (word_len);
+}
 
 /* FUNCION CONTAR PALABRAS -> x es un disparador, comenzamos a contar la 
 palabra sólo si es igual a 0. Esto nos permitirá omitir todos los separadores, 
@@ -58,59 +149,73 @@ para que así sea, no contar otra palabra hasta que encontremos otro separador.
 Cuando encontramos un separador, configuramos nuestro disparador en 0 nuevamente
 para que podemos contar otra palabra si hay una, el disparador nos ayuda 
 a cuidar los string que están solo compuesto por separador */
-static int	ft_word_count(char *str, char character)
+static int	ft_words_count(char const *str, char character)
 {
 	int	index;
 	int	count;
+	int	word_flag;
 
 	index = 0;
 	count = 0;
-	if (str[0] != character && str[0] != '\0')
-		count++;
+	word_flag = 0;
 	while (str[index] != '\0')
 	{
-		if (str[index] == character && str[index + 1] != '\0' && str[index + 1] != character)
+		if (str[index] != character && word_flag == 0)
+		{
+			word_flag = 1;
 			count++;
+		}
+		else if (str[index] == character)
+			word_flag = 0;
 		index++;
 	}
 	return (count);
 }
 
-// CALCULA LONGITUD POR PALABRA
-static int	ft_word_len(char const *str, char character, int index)
+// FUNCION DIVIDIR Y ASIGNAR
+/* Crea nuevo string con reserva de memeoria segun longitud palabra 
+y la rellena. Copia la palabra desde str entre indices 'start y end' */
+/* Retorna string -> se almacenará en nuestra matriz de palabras */
+/* static char	*fill_word(char const *str, int start, int end)
 {
-	int word_len;
+	int	index;
+	char	*word;
 
-	word_len = 0;
-	while (str[index] != '\0' && str[index] != character)
+	index = 0;
+	word = (char *)malloc(end - start + 1);
+	if (!word)
+		return (NULL);
+	while ( index < end)
 	{
-		word_len++;
+		word[index] = str[start + index];
 		index++;
 	}
-	return(word_len);	
-}
-
-
-// FUNCION DIVIDIR Y ASIGNAR
-/* static char	*fill_word()
-{
-	return (0);
-}
-
-static char	*ft_free()
-{
-	return (0);
+	word[index] = '\0';
+	return (word);
 } */
 
-int	main(void)
+/* int	main(void)
 {
-	printf("contador palabras string '3': %d \n", ft_word_count("HOLA-CAT-BC", '-'));
-	printf("contador palabras string '3': %d \n", ft_word_count("-  HOLA-CAT-BC", '-'));
-	printf("contador palabras string '3': %d \n", ft_word_count("---HOLA-CAT-BC--", '-'));
+	printf("contador palabras string '3': %d \n", 
+		ft_words_count("HOLA-CAT-BC", '-'));
+	printf("contador palabras string '3': %d \n", 
+		ft_words_count("-  HOLA-CAT-BC", '-'));
+	printf("contador palabras string '3': %d \n", 
+		ft_words_count("---HOLA-CAT-BC--", '-'));
 
 	printf("longitud palabras: %d \n", ft_word_len("HOLA-CAT-BC", '-', 0));
-	printf("longitud palabras: %d \n", ft_word_len("-  HOLA-CAT-BC", '-', 1));
-	printf("longitud palabras: %d \n", ft_word_len("---HOLA-CAT-BC--", '-', 3));
 
+	// TEST FUNCION FT_SPLIT
+	int index = 0;
+	char	**array = ft_split("HOLA-CAT-BC", '-');
+	while (array[index])
+	{
+		printf("array palabras: %s \n", array[index]);
+		index++;
+	}
+	// LIMPIEZA MEMORIA ARRAY TEST
+	array = ft_free_array(array);
+	if (array)
+        printf("\n -ARRAY NO ES NULO- \n");
 	return (0);
-}
+} */

@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:03:18 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/03 21:55:25 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:04:31 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static char	**ft_split_words(char const *str, char c, char **ar, int w_num);
 
 char	**ft_split(char const *str, char character)
 {
-	unsigned int	words_numbers;
 	unsigned char	**array;
+	unsigned int	words_numbers;
 
 	words_numbers = 0;
 	if (!str)
@@ -117,9 +117,11 @@ static char	**ft_free_array(char **array)
 		while (array[index])
 		{
 			free(array[index]);
+			array[index] = 0;
 			index++;
 		}
 		free(array);
+		array = 0;
 	}
 	return (array);
 }
@@ -171,28 +173,6 @@ static int	ft_words_count(char const *str, char character)
 	return (count);
 }
 
-// FUNCION DIVIDIR Y ASIGNAR
-/* Crea nuevo string con reserva de memeoria segun longitud palabra 
-y la rellena. Copia la palabra desde str entre indices 'start y end' */
-/* Retorna string -> se almacenará en nuestra matriz de palabras */
-/* static char	*fill_word(char const *str, int start, int end)
-{
-	int	index;
-	char	*word;
-
-	index = 0;
-	word = (char *)malloc(end - start + 1);
-	if (!word)
-		return (NULL);
-	while ( index < end)
-	{
-		word[index] = str[start + index];
-		index++;
-	}
-	word[index] = '\0';
-	return (word);
-} */
-
 /* int	main(void)
 {
 	printf("contador palabras string '3': %d \n", 
@@ -204,7 +184,7 @@ y la rellena. Copia la palabra desde str entre indices 'start y end' */
 
 	printf("longitud palabras: %d \n", ft_word_len("HOLA-CAT-BC", '-', 0));
 
-	// TEST FUNCION FT_SPLIT
+	// TEST FUNCION FT_SPLIT 1
 	int index = 0;
 	char	**array = ft_split("HOLA-CAT-BC", '-');
 	while (array[index])
@@ -215,6 +195,18 @@ y la rellena. Copia la palabra desde str entre indices 'start y end' */
 	// LIMPIEZA MEMORIA ARRAY TEST
 	array = ft_free_array(array);
 	if (array)
+        printf("\n -ARRAY NO ES NULO- \n");
+
+	// TEST FUNCION FT_SPLIT 2
+	char	**array2 = ft_split("-  HOLA-CAT-BC", '-');
+	while (array2[index])
+	{
+		printf("array palabras: %s \n", array2[index]);
+		index++;
+	}
+	// LIMPIEZA MEMORIA ARRAY TEST
+	array2 = ft_free_array(array2);
+	if (array2)
         printf("\n -ARRAY NO ES NULO- \n");
 	return (0);
 } */

@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:03:18 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/03 21:31:08 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/03 21:55:25 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ de memoria. Cada elemento de la matriz así como la matriz  */
 static int	ft_words_count(char const *str, char character);
 static int	ft_word_len(char const *str, char character, int index);
 static char	**ft_free_array(char **array);
-static char	**ft_split_w(char const *str, char c, unsigned char **array, int w_numbers);
+static char	**ft_split_words(char const *str, char c, char **ar, int w_num);
 
 char	**ft_split(char const *str, char character)
 {
@@ -54,10 +54,11 @@ char	**ft_split(char const *str, char character)
 	array = (unsigned char **)malloc(sizeof(char *) * (words_numbers + 1));
 	if (!array)
 		return (NULL);
-	array = ft_split_w(str, character, array, words_numbers);
+	array = (unsigned char **)ft_split_words
+		(str, character, (char **)array, words_numbers);
 	if (!array)
 	{
-		array = ft_free_array(array);
+		array = (unsigned char **)ft_free_array((char **)array);
 		return (NULL);
 	}
 	return ((char **)array);
@@ -75,7 +76,7 @@ char	**ft_split(char const *str, char character)
  * @param words_numbers la longitud de array.
  * @return char** una matriz doble con un "pieza of str" en cada posición.
  */
-static char	**ft_split_w(char const *str, char c, unsigned char **array, int w_numbers)
+static char	**ft_split_words(char const *str, char c, char **arr, int w_num)
 {
 	int	str_index;
 	int	word_index;
@@ -83,23 +84,23 @@ static char	**ft_split_w(char const *str, char c, unsigned char **array, int w_n
 
 	str_index = 0;
 	word_index = 0;
-	while (word_index < w_numbers)
+	while (word_index < w_num)
 	{
 		while (str[str_index] != '\0' && str[str_index] == c)
 			str_index++;
 		word_len = ft_word_len(str, c, str_index);
-		if (!array[word_index])
+		arr[word_index] = ft_substr(str, str_index, word_len);
+		if (!arr[word_index])
 		{
-			ft_free_array(array);
+			arr = ft_free_array((char **)arr);
 			return (NULL);
 		}
-		array[word_index] = ft_substr(str, str_index, word_len);
 		str_index = str_index + word_len;
 		word_len = 0;
 		word_index++;
 	}
-	array[word_index] = '\0';
-	return (array);
+	arr[word_index] = '\0';
+	return ((char **)arr);
 }
 
 /* LIBERAR RESERVA MEMORIA DE ARRAY DE STRINGS */
@@ -116,11 +117,9 @@ static char	**ft_free_array(char **array)
 		while (array[index])
 		{
 			free(array[index]);
-			array[index] = 0;
 			index++;
 		}
 		free(array);
-		array = 0;
 	}
 	return (array);
 }
@@ -133,8 +132,8 @@ static int	ft_word_len(char const *str, char character, int index)
 	word_len = 0;
 	while (str[index] != '\0' && str[index] != character)
 	{
-		word_len++;
 		index++;
+		word_len++;
 	}
 	return (word_len);
 }

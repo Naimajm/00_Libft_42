@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 10:55:45 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/02 18:02:10 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/02 20:03:18 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,37 @@ de la misma manera que todos los demás números -> NO. tratamiento especifico *
 configuración str[len] = '0'*/
 /* si el número es menor que 0,establecemos el número igual a menos sí mismo.*/
 /* Conversión de int a carácter */
+
+static int	ft_int_len(int num);
+static char	*ft_itoa_int_min(void);
+
+char	*ft_itoa(int num)
+{
+	unsigned int	len;
+	unsigned char	*result;
+
+	if (num == -2147483648)
+		return (ft_itoa_int_min());
+	len = ft_int_len(num);
+	result = malloc(len + 1);
+	if (!result)
+		return (NULL);
+	result[len] = '\0';
+	if (num == 0)
+		result[0] = '0';
+	if (num < 0)
+	{
+		result[0] = '-';
+		num = num * -1;
+	}
+	while (num > 0)
+	{
+		result[len - 1] = (num % 10) + '0';
+		num = num / 10;
+		len--;
+	}
+	return ((char *)result);
+}
 
 // FUNCION AUXILIAR -> RETORNA LONGITUD DE CARACTERES DE NUMERO ENTERO
 static int	ft_int_len(int num)
@@ -68,34 +99,6 @@ static char	*ft_itoa_int_min(void)
 	result[10] = '8';
 	result[11] = '\0';
 	return (result);
-}
-
-char	*ft_itoa(int num)
-{
-	unsigned int	len;
-	unsigned char	*result;
-
-	if (num == -2147483648)
-		return (ft_itoa_int_min());
-	len = ft_int_len(num);
-	result = malloc(len + 1);
-	if (!result)
-		return (NULL);
-	result[len] = '\0';
-	if (num == 0)
-		result[0] = '0';
-	if (num < 0)
-	{
-		result[0] = '-';
-		num = num * -1;
-	}
-	while (num > 0)
-	{
-		result[len - 1] = (num % 10) + '0';
-		num = num / 10;
-		len--;
-	}
-	return ((char *)result);
 }
 
 /* int	main(void)

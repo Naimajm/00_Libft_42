@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/30 18:34:34 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/03 22:21:28 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,21 @@
 # include <string.h>
 # include <ctype.h>
 # include <stdlib.h>
+/* fcntl - manipula el descriptor de fichero fd. La operación en cuestión se 
+determina mediante cmd.  Define las siguientes requests y argumentos para su uso 
+por las funciones fcntl() y open() */
+# include <fcntl.h>
 
 // ESTRUCTURAS DATOS -----------------------------------
 // ----------------------------------------------------
+
+typedef struct s_list
+{
+	void	*content;
+	struct s_list	*next;
+	
+}				t_list;
+
 
 // FUNCIONES CHECKS-COUNTERS-UTILITIES  -----------------------------------
 // ----------------------------------------------------
@@ -148,8 +160,8 @@ en función de un conjunto de caracteres determinado.
 * @param str1: puntero a la cadena que se va a recortar.
 * @param set: puntero al conjunto de caracteres que se van a recortar.
 * @returns char *-> Si la asignación de memoria se realiza correctamente 
-y la cadena recortada resultante no está vacía, se devuelve un puntero a la cadena recortada.
-Si str1 o set es NULL, o si falla la asignación de memoria, 
+y la cadena recortada resultante no está vacía, se devuelve un puntero a 
+la cadena recortada. Si str1 o set es NULL, o si falla la asignación de memoria, 
 o si la cadena recortada resultante está vacía, se devuelve NULL.
 */
 char	*ft_strtrim(char const *str1, char const *set);
@@ -163,9 +175,21 @@ Toma un 'unsigned int' (el índice) y un char como parámetros,
 y devuelve un nuevo carácter basado en el índice y el carácter de entrada.
 * @returns char *-> Una cadena asignada dinámicamente resultante de 
 la aplicación de la función a cada carácter de la cadena de entrada.
-Se devuelve NULL si falla la asignación de memoria o si la cadena de entrada es NULL.
+Se devuelve NULL si falla la asignación de memoria o si la cadena de 
+entrada es NULL.
 */
-//schar	*ft_strmapi(char const *str, char (*function)(unsigned int, char));
+char	*ft_strmapi(char const *str, char (*function)(unsigned int, char));
+
+/** 
+* @brief  Aplica una función a cada carácter de una cadena, 
+creando una nueva cadena con los resultados.
+* @param str: puntero a la cadena sobre la que se va a iterar.
+* @param function: función que se aplicará a cada carácter.
+Toma un 'unsigned int' (el índice) y un puntero a un carácter 
+como parámetros, y realiza alguna operación sobre el carácter.
+* @returns -> Ninguno.
+*/
+void	ft_striteri(char *str, void (*function)(unsigned int, char *));
 
 // FUNCIONES STRING  -----------------------------------
 // -----------------------------------------------------
@@ -262,9 +286,64 @@ o valor 0 como error.
 */
 int	ft_atoi(const char *str);
 
+/** 
+* @brief Convierte un número entero en una representación string.
+* @param num: número entero que se va a convertir.
+* @returns char * -> Una cadena asignada dinámicamente que representa 
+el número entero convertido.
+Se devuelve NULL si falla la asignación de memoria.
+*/
+char	*ft_itoa(int num);
 
+/** 
+* @brief Divide una cadena en una matriz de subcadenas 
+según un carácter delimitador.
+* @param str: puntero a la cadena que se va a dividir.
+* @param character: carácter delimitador utilizado para dividir la cadena.
+* @returns char ** -> Una matriz de cadenas asignada dinámicamente que 
+representa las subcadenas divididas. 
+El último elemento de la matriz se establece en NULL.
+NULL si falla la asignación de memoria o si 'str' es NULL.
+*/
+char	**ft_split(char const *str, char character);
 
+// FUNCIONES CON FILES DESCRIPTORS  -------------------
+// ----------------------------------------------------
 
+/** 
+* @brief Escribe el carácter c en el 'descriptor de archivo' fd.
+* @param character: carácter que se escribirá en el descriptor 
+de archivo especificado.
+* @param fd: descriptor de archivo en el que se escribirá el carácter.
+* @returns -> Ninguno.
+*/
+void	ft_putchar_fd(char character, int fd);
+
+/** 
+* @brief Escribe una string en un descriptor de archivo específico.
+* @param str: puntero a la cadena que se va a escribir.
+* @param fd: descriptor de archivo en el que se escribirá el carácter.
+* @returns -> Ninguno.
+*/
+void	ft_putstr_fd(char *str, int fd);
+
+/** 
+* @brief Escribe la cadena s en el descriptor de archivo especificado fd, 
+seguida de un carácter de nueva línea '\n'.
+* @param str: puntero a la cadena que se va a escribir.
+* @param fd: descriptor de archivo en el que se escribirá el carácter.
+* @returns -> Ninguno.
+*/
+void	ft_putendl_fd(char *str, int fd);
+
+/** 
+* @brief Convierte el número entero 'n' a su representación decimal y escribe el 
+resultado en el descriptor de archivo especificado. 
+* @param num: número entero que se va a escribi.
+* @param fd: descriptor de archivo en el que se escribirá el numero entero.
+* @returns -> Ninguno.
+*/
+void	ft_putnbr_fd(int num, int fd);
 
 // FUNCIONES LIST  -----------------------------------
 // ----------------------------------------------------

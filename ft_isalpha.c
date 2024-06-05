@@ -6,17 +6,22 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:16:00 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 18:47:30 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/04 11:17:30 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // https://42-cursus.gitbook.io/guide/rank-00/libft/libc-functions/ft_isalpha
-// devuelve 0 si caracter 'int 'es alfabetico. si no, distinto 0
+/* Comprueba si un carácter es un carácter alfabético. Considera tanto letras 
+mayúsculas (valores ASCII 65 a 90) como letras minúsculas (valores 
+ASCII 97 a 122) como caracteres alfabéticos. Si el carácter de entrada se 
+encuentra dentro de cualquiera de estos rangos, la función devuelve el valor 
+con un valor distinto de cero; en caso contrario, devuelve 0. */
+
 int	ft_isalpha(int charac)
 {
-	unsigned int	is_alpha;
+	int	is_alpha;
 
 	is_alpha = 0;
 	if ((charac >= 'A' && charac <= 'Z') || (charac >= 'a' && charac <= 'z'))
@@ -24,28 +29,9 @@ int	ft_isalpha(int charac)
 	return (is_alpha);
 }
 
-/* static  void ft_putchar (char caracter)
+/* int    main(int argn, char **argv)
 {
-    write(1, &caracter, 1);
-}
- 
-int    main(void)
-{
-    int caracter1;
-    int caracter2;
-
-    caracter1 = 'A';
-    caracter2 = '_';
-    
-    ft_putchar(ft_isalpha(caracter1) + '0');
-    ft_putchar('\n');
-    ft_putchar(ft_isalpha(caracter2) + '0');
-    ft_putchar('\n');
-
-    ft_putchar(ft_isalpha(caracter1) + '0');
-    ft_putchar('\n');
-    ft_putchar(ft_isalpha(caracter2) + '0');
-    ft_putchar('\n');
-
-    return 0;
+	if (argn > 1)
+		printf("caracter alfa '%c': %d \n", argv[1][0], ft_isalpha(argv[1][0]));
+    return (0);
 } */

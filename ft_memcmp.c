@@ -6,11 +6,18 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 13:00:10 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/25 13:37:39 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:18:38 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* Compara los bloques de memoria a los que apuntan s1 y s2 hasta una longitud 
+especificada n. Itera a través de los bloques de memoria usando un bucle while, 
+comparando cada byte. Si un byte en s1 no es igual al byte correspondiente 
+en s2, devuelve la diferencia entre los dos bytes. Si todos los bytes son 
+iguales dentro de la longitud especificada, devuelve 0 para indicar que los
+bloques de memoria son iguales. */
 
 /* Compara los bloques de memoria a los que apuntan
  s1 y s2 hasta una longitud especificada n. 
@@ -26,21 +33,37 @@ int	ft_memcmp(const void *str1, const void *str2, unsigned int num)
 {
 	unsigned char	*str1_ptr;
 	unsigned char	*str2_ptr;
-	unsigned int	indice;
+	unsigned int	index;
 
 	str1_ptr = (unsigned char *) str1;
 	str2_ptr = (unsigned char *) str2;
-	indice = 0;
+	index = 0;
 	if (num == 0)
 		return (0);
-	while (indice < num)
+	while (index < num)
 	{
-		if (str1_ptr[indice] == str2_ptr[indice])
-			indice++;
-		else if (str1_ptr[indice] > str2_ptr[indice])
+		if (str1_ptr[index] == str2_ptr[index])
+			index++;
+		else if (str1_ptr[index] > str2_ptr[index])
 			return (1);
 		else
 			return (-1);
 	}
 	return (0);
 }
+
+/* int	main(int argn, char **argv)
+{
+	char	*str1 = argv[1];
+	char	*str2 = argv[2];
+	int	num = argv[3][0] - '0';
+	
+    if (argn > 3)
+	{
+		printf("argumentos -> str1 '%s' , str2 '%s' , num '%d' \n"
+			, str1, str2, num);
+		printf("ft_memcmp -> return %d \n", 
+            ft_memcmp(str1, str2, num));
+	}  
+    return (0);
+} */

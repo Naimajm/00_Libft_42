@@ -6,11 +6,15 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:56:34 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/30 21:24:25 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:00:20 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* Extrae una subcadena de una cadena que comienza en el inicio del índice con
+una longitud especificada len. Asigna memoria para la subcadena, copia los
+caracteres de s a la subcadena y devuelve el puntero a la subcadena. */
 
 /* Primero tenemos que comprobar si el start índice es mayor que la longitud 
 de la cadena o no. También tenemos que comprobar si el startmás lenes mayor que 
@@ -61,27 +65,30 @@ char	*ft_substr(const char *str, unsigned int start, unsigned int len)
 	return ((char *)substr);
 }
 
-/* int	main(void)
+/* int	main(int argn, char **argv)
 {
-	char *str1 = "Hola Mundo";
-	unsigned int start1 = 2;
-	unsigned int len1 = 4;
+	char	*str = argv[1];
+	int	start = argv[2][0] - '0';
+	int	len = argv[3][0] - '0';
 	
-	printf("%s \n", ft_substr(str1, start1, len1));
+    if (argn > 2)
+	{
+		printf("argumentos -> dest '%s' , num '%d' , num '%d' \n"
+			, str, start, len);
+		printf("ft_substr -> return %s \n", ft_substr(str, start, len));
+	}  
 
-	// start >= ft_strlen(str)
-	char *str2 = "Hola";
-	unsigned int start2 = 10;
-	unsigned int len2 = 4;
+		printf("argumentos -> dest '%s' , num '%d' , num '%d' \n"
+			, "Hola Mundo", 2, 4);
+		printf("ft_substr -> return %s \n", ft_substr("Hola Mundo", 2, 4));
 
-	printf("%s \n", ft_substr(str2, start2, len2));
+		printf("argumentos -> dest '%s' , num '%d' , num '%d' \n"
+			, "Hola", 9, 4);
+		printf("ft_substr -> return %s \n", ft_substr("Hola", 9, 4));
 
-	// len > ft_strlen(str) 
-	char *str3 = "Hola";
-	unsigned int start3 = 2;
-	unsigned int len3 = 4;
+		printf("argumentos -> dest '%s' , num '%d' , num '%d' \n"
+			, "Hola", 2, 4);
+		printf("ft_substr -> return %s \n", ft_substr("Hola", 2, 4));
 
-	printf("%s \n", ft_substr(str3, start3, len3));
-	
-	return (0);
-}  */
+    return (0);
+} */

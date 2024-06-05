@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 22:25:29 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/30 11:13:57 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:03:34 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,16 @@ char	*ft_strjoin(char const *str1, char const *str2)
 	return ((char *) str);
 }
 
-/* int main()
+/* int main(int argn, char **argv)
 {
-	char const *str1 = "First ";
-	char const *str2 = "Second ";
-
-	printf("%s",ft_strjoin(str1, str2));
-	return (0);
+	char	*str1 = argv[1];
+	char	*str2 = argv[2];
+	
+    if (argn > 2)
+	{
+		printf("argumentos -> str1 '%s' , str2 '%s' \n"
+			, str1, str2);
+		printf("ft_strjoin -> return %s \n", ft_strjoin(str1, str2));
+	}  
+    return (0);
 } */

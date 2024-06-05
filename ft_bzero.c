@@ -6,17 +6,23 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:54:15 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 19:07:01 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 10:58:27 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* 
+Establece los primeros n bytes de la memoria señalada por dest en cero. Itera a 
+través del bloque de memoria disminuyendo n, y para cada iteración, asigna el 
+valor 0 al byte actual señalado por dest. */
 
 // rellena con ceros n bytes en string destino --------
 /* declare a temporary pointer */
 /* make the temporary pointer equal to *s converted to a char * */
 /* loop on the temporary pointer while we didn't reach n characters */
 /* in that loop, set the current byte equal to 0 */
+
 void	*ft_bzero(void *dest, unsigned int len)
 {
 	unsigned char	*dest_ptr;
@@ -35,17 +41,17 @@ void	*ft_bzero(void *dest, unsigned int len)
 	return (dest);
 }
 
-/* int main(void)
-{   
-    char str[] = "HolaCaracola";
-    unsigned int n = 3;
-    unsigned int nNull = 0;
-
-    printf("test 1 bzero %s \n", bzero(str, n));
-    printf("test 1 ft_bzero %s \n", ft_bzero(str, n));
-
-    printf("test 2 bzero %s \n", bzero(str, nNull));
-    printf("test 2 ft_bzero %s \n", ft_bzero(str, nNull));
-
+/* int	main(int argn, char **argv)
+{
+	char	*dest = argv[1];
+	int	len = argv[2][0] - '0';
+	
+    if (argn > 2)
+	{
+		printf("argumentos -> dest '%s' , len '%d' \n"
+			, dest, len);
+		printf("ft_bzero -> return %s \n", 
+            (char *) ft_bzero(dest, len));
+	}  
     return (0);
 } */

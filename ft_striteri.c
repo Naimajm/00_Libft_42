@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 21:26:11 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/30 22:02:04 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:34:20 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,3 +32,21 @@ void	ft_striteri(char *str, void (*function)(unsigned int, char *))
 		}
 	}
 }
+
+/* void ft_funcionprueba(unsigned int index, char *character)
+{
+	character = character + index;
+}
+
+int main(int argn, char **argv)
+{
+	char	*str = argv[1];
+	
+    if (argn > 1)
+	{
+		printf("argumentos -> str '%s' \n", str);
+		ft_striteri(str, ft_funcionprueba);
+		printf("ft_striteri -> return %s \n", str);
+	}  
+    return (0);
+} */

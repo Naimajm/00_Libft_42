@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/03 22:21:28 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:29:02 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,42 +25,72 @@ determina mediante cmd.  Define las siguientes requests y argumentos para su uso
 por las funciones fcntl() y open() */
 # include <fcntl.h>
 
-// ESTRUCTURAS DATOS -----------------------------------
-// ----------------------------------------------------
-
-typedef struct s_list
-{
-	void	*content;
-	struct s_list	*next;
-	
-}				t_list;
-
-
 // FUNCIONES CHECKS-COUNTERS-UTILITIES  -----------------------------------
 // ----------------------------------------------------
 
+/** 
+* @brief Comprueba si un carácter determinado es un carácter alfabético.
+* @param charac: carácter a comprobar.
+* @returns -> Si check es correcto, devuelve valor distinto de cero.
+Si check es incorrecto, devuelve 0.
+*/
 int	ft_isalpha(int caracter);
 
-// retorna 0 si valor char es digito (0-9)
+/** 
+* @brief Comprueba si un carácter determinado es un dígito.
+* @param charac: carácter a comprobar.
+* @returns -> Si check es correcto, devuelve valor distinto de cero.
+Si check es incorrecto, devuelve 0.
+*/
 int	ft_isdigit(int digit);
 
+/** 
+* @brief Comprueba si un carácter determinado es un carácter alfabético 
+o un dígito.
+* @param charac: carácter a comprobar.
+* @returns -> Si check es correcto, devuelve valor distinto de cero.
+Si check es incorrecto, devuelve 0.
+*/
 int	ft_isalnum(int caracter);
 
-/* retorna distinto 0 si caracter tiene valor octal entre 0 y 177 
-(decimal 000 y 127) */
-// tabla valores ascii de control + imprimibles
+/** 
+* @brief Comprueba si un carácter determinado está dentro del rango ASCI.
+En tabla valores ascii de control + imprimibles (000 y 127).
+* @param charac: carácter a comprobar.
+* @returns -> Si check es correcto, devuelve valor distinto de cero.
+Si el carácter no es alfabético, devuelve 0.
+*/
 int	ft_isascii(int caracter);
 
-// retorna distinto 0 si caracter ascii es imprimible (32-126) (espacio - ~)
+/** 
+* @brief Comprueba si un carácter determinado es imprimible. (ascii 32-126)
+* @param charac: carácter a comprobar.
+* @returns -> Si check es correcto, devuelve valor distinto de cero.
+Si check es incorrecto, devuelve 0.
+*/
 int	ft_isprint(int caracter);
 
 // FUNCIONES MEMORY-  -----------------------------------
 // ---------------------------------------------------
 
-// rellena con ceros n bytes en string destino
+/** 
+* @brief Pone un bloque de memoria a cero.
+Rellena con ceros n bytes en string destino.
+* @param dest: puntero al bloque de memoria.
+* @param len: número de bytes que se establecerán en cero.
+* @returns -> puntero al bloque de memoria una vez que 
+se ha llenado.
+*/
 void	*ft_bzero(void *dest, unsigned int len);
 
-// escribe 'len' bytes de valor 'caracter' en la cadena 'dest'
+/** 
+* @brief Llena un bloque de memoria con un valor específico.
+escribe 'len' bytes de valor 'caracter' en la cadena 'dest'.
+* @param dest: puntero al bloque de memoria que se va a llenar.
+* @param character: El valor a establecer.
+* @param len: número de bytes que se establecerán.
+* @returns -> puntero al bloque de memoria una vez que se ha llenado.
+*/
 void	*ft_memset(void *dest, int caracter, unsigned int len);
 
 /** 
@@ -123,7 +153,7 @@ se devuelve NULL.
 void	*ft_calloc(unsigned int count, unsigned int size);
 
 /** 
-* @brief duplicar una cadena terminada en nulo (src) asignando 
+* @brief Duplicar una cadena terminada en nulo (src) asignando 
 memoria para una nueva cadena y copiando el contenido.
 * @param str: puntero a la cadena fuente terminada en nulo que se duplicará.
 * @returns char* -> puntero a la cadena duplicada recién asignada. 
@@ -210,7 +240,13 @@ El carácter de entrada en sí, si no es una letra mayúscula.
 */
 int	ft_tolower(int character);
 
-// retorna longitud del string
+/** 
+* @brief Devuelve el número de caracteres antes del carácter final NUL( \0) 
+de la cadena.
+* @param str: puntero a la cadena terminada en nulo cuya longitud.
+* @returns unsigned int -> longitud de la cadena de entrada, 
+excluyendo el terminador nulo..
+*/
 unsigned int	ft_strlen(const char *string);
 
 /** 
@@ -268,8 +304,8 @@ int	ft_strncmp(const char *str1, const char *str2, unsigned int num);
 
 /** 
 * @brief Compara dos cadenas hasta una longitud especificada.
-* @param haystack: puntero a la cadena que se va a buscar.
-* @param needle:  un puntero a la subcadena a buscar.
+* @param src: puntero a la cadena que se va a buscar.
+* @param toFind:  un puntero a la subcadena a buscar.
 * @param num:  número máximo de caracteres a comparar.
 * @returns int -> Si se encuentra la subcadena, se devuelve puntero
  a la primera aparición de la subcadena dentro de la cadena.
@@ -344,6 +380,16 @@ resultado en el descriptor de archivo especificado.
 * @returns -> Ninguno.
 */
 void	ft_putnbr_fd(int num, int fd);
+
+// ESTRUCTURAS DATOS -----------------------------------
+// ----------------------------------------------------
+
+typedef struct s_list
+{
+	void	*content;
+	struct s_list	*next;
+	
+}				t_list;
 
 // FUNCIONES LIST  -----------------------------------
 // ----------------------------------------------------

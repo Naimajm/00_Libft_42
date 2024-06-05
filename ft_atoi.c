@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 20:42:24 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/28 16:39:53 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:24:52 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,53 +59,23 @@ int	ft_atoi(const char *str)
 
 /* int	main(void)
 {
-	char *str1 = "945";
-	int	integer1;
+	printf("argumentos -> str '%s' \n", "945");
+	printf("ft_atoi -> return %d \n", ft_atoi("945"));
 
-	char *str2 = "-945";
-	int	integer2;
+	printf("argumentos -> str '%s' \n", "-945");
+	printf("ft_atoi -> return %d \n", ft_atoi("-945"));
 
-	char *str3 = " -+945";
-	int	integer3;
+	printf("argumentos -> str '%s' \n", " -+945");
+	printf("ft_atoi -> return %d \n", ft_atoi(" -+945"));
 
-	char *str4 = " -+945asd";
-	int	integer4;
-	
-	char *str5 = " -945";
-	int	integer5;
-	
-	char *str6 = "1 50";
-	int	integer6;
+	printf("argumentos -> str '%s' \n", " -+945asd");
+	printf("ft_atoi -> return %d \n", ft_atoi(" -+945asd"));
 
-	integer1 = atoi(str1);
-	printf("atoi %d \n", integer1);
-	integer1 = ft_atoi(str1);
-	printf("ft_atoi %d \n", integer1);
+	printf("argumentos -> str '%s' \n", " -945");
+	printf("ft_atoi -> return %d \n", ft_atoi(" -945"));
 
-	integer2 = atoi(str2);
-	printf("atoi %d \n", integer2);
-	integer2 = ft_atoi(str2);
-	printf("ft_atoi %d \n", integer2);
-
-	integer3 = atoi(str3);
-	printf("atoi %d \n", integer3);
-	integer3 = ft_atoi(str3);
-	printf("ft_atoi %d \n", integer3);
-
-	integer4 = atoi(str4);
-	printf("atoi %d \n", integer4);
-	integer4 = ft_atoi(str4);
-	printf("ft_atoi %d \n", integer4);
-
-	integer5 = atoi(str5);
-	printf("atoi %d \n", integer5);
-	integer5 = ft_atoi(str5);
-	printf("ft_atoi %d \n", integer5);
-
-	integer6 = atoi(str6);
-	printf("atoi %d \n", integer6);
-	integer6 = ft_atoi(str6);
-	printf("ft_atoi %d \n", integer6);
+	printf("argumentos -> str '%s' \n", "1 50");
+	printf("ft_atoi -> return %d \n", ft_atoi("1 50"));
 
 	return (0);
 } */

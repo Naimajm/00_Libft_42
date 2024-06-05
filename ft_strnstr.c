@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/25 14:23:14 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/27 11:21:09 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 10:31:34 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*ft_strnstr(const char *src, const char *toFind, size_t num)
 	{
 		tofind_j = 0;
 		while ((src[src_i + tofind_j] == toFind[tofind_j])
-			&& src[src_i + tofind_j]
+			&& src[src_i + tofind_j] != '\0'
 			&& ((src_i + tofind_j) < num))
 		{
 			tofind_j++;
@@ -53,3 +53,18 @@ char	*ft_strnstr(const char *src, const char *toFind, size_t num)
 	}
 	return (0);
 }
+
+/* int	main(int argn, char **argv)
+{
+	char	*src = argv[1];
+	char	*toFind = argv[2];
+	int	num = argv[3][0] - '0';
+	
+    if (argn > 3)
+	{
+		printf("argumentos -> src '%s' , toFind '%s' , num '%d' \n"
+			, src, toFind, num);
+		printf("ft_strnstr -> return %s \n", ft_strnstr(src, toFind, num));
+	}  
+    return (0);
+} */

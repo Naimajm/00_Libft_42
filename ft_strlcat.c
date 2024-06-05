@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 17:43:09 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/27 19:32:10 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/04 13:28:09 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,3 +55,20 @@ unsigned int	ft_strlcat(char *dest, const char *src, unsigned int destsize)
 	dest[dest_index] = '\0';
 	return (dest_len + src_len);
 }
+
+/* int main(int argn, char **argv)
+{
+	char	*dest = argv[1];
+	char	*src = argv[2];
+	unsigned int size = argv[3][0] - '0';
+	//unsigned int size = 20;
+
+    if (argn > 2)
+	{
+		printf("argumentos -> dest '%s' , src '%s' , size %d \n"
+			, dest, src, size);
+		printf("ft_strlcat -> return %d , dest : '%s' \n"
+			, ft_strlcat(dest, src, size), dest);
+	}  
+    return (0);
+} */

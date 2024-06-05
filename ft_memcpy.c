@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 18:27:43 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/25 12:48:04 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:04:06 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,39 +26,37 @@ convertido a unsigned char * */
 /* establece el byte actual del puntero dst tmp igual 
 al byte actual del puntero src tmp */
 
-void	*ft_memcpy(void *dest, const void *src, unsigned int n)
+void	*ft_memcpy(void *dest, const void *src, unsigned int num)
 {
 	unsigned char	*dest_ptr;
 	unsigned char	*src_ptr;
-	unsigned int	indice;
+	unsigned int	index;
 
 	if (src == NULL && dest == NULL)
 		return (dest);
 	dest_ptr = (unsigned char *)dest;
 	src_ptr = (unsigned char *)src;
-	indice = 0;
-	while (indice < n)
+	index = 0;
+	while (index < num)
 	{
-		dest_ptr[indice] = src_ptr[indice];
-		indice++;
+		dest_ptr[index] = src_ptr[index];
+		index++;
 	}
 	return (dest_ptr);
 }
 
-/* int main(void)
+/* int	main(int argn, char **argv)
 {
-    char    strSrc[] = "HolaCaracola";
-    char    strDest[] = "Adios";
-
-    char    strNullSrc[] = " ";
-    char    strNullDest[] = " ";
-    unsigned int n = 4;   
-
-    printf("test 1 memcpy %s \n", memcpy(strDest, strSrc, n)); 
-    printf("test 1 ft_memcpy %s \n", ft_memcpy(strDest, strSrc, n));
-
-    //printf("test 1 memcpy %s \n", memcpy(strNullDest, strNullSrc, n)); 
-    //printf("test 1 ft_memcpy %s \n", ft_memcpy(strNullDest, strNullSrc, n));
-
+	char	*dest = argv[1];
+	char	*src = argv[2];
+	int	num = argv[3][0] - '0';
+	
+    if (argn > 3)
+	{
+		printf("argumentos -> dest '%s' , src '%s' , num '%d' \n"
+			, dest, src, num);
+		printf("ft_memcpy -> return %s \n", 
+            (char *) ft_memcpy(dest, src, num));
+	}  
     return (0);
 } */

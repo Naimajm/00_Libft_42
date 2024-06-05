@@ -6,16 +6,17 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/24 14:57:22 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/25 12:33:56 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:14:52 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* La función memchr() escanea los n bytes iniciales del 
-área de memoria señalada por s para la primera instancia de c.  
-Tanto c como los bytes del área de memoria apuntados
-por s se interpretan como caracteres sin firmar. */
+/* Busca la primera aparición del carácter c en el bloque de memoria al que 
+apunta str, hasta una longitud especificada n. Itera a través del bloque de 
+memoria usando un bucle while y verifica si cada byte coincide con c. Si se 
+encuentra una coincidencia, devuelve un puntero a ese byte. Si no se encuentra
+ninguna coincidencia dentro de la longitud especificada, devuelve NULL. */
 
 /* la búsqueda se hace para c convertido a un ''unsigned char'', 
 por lo que tenemos que convertir tanto caracter como str a 'unsigned char' */
@@ -25,28 +26,38 @@ por lo que tenemos que convertir tanto caracter como str a 'unsigned char' */
 /* si buscamos n bytes y no encontramos lo que buscábamos -> devolver NULO */
 /* como puedes ver, esto está muy cerca de strchr y strrchr funciones */
 
-void	*ft_memchr(const void *str, int caracter, unsigned int num)
+void	*ft_memchr(const void *str, int character, unsigned int num)
 {
 	unsigned char	*str_ptr;
-	unsigned char	caracter_char;
-	unsigned int	indice;
+	unsigned char	chr;
+	unsigned int	index;
 
 	str_ptr = (unsigned char *) str;
-	caracter_char = (unsigned char) caracter;
-	indice = 0;
-	while (indice < num)
+	chr = (unsigned char) character;
+	index = 0;
+	while (index < num)
 	{
-		if (str_ptr[indice] == caracter_char)
+		if (str_ptr[index] == chr)
 		{
-			return ((void *)(str_ptr + indice));
+			return ((void *)(str_ptr + index));
 		}
-		indice++;
+		index++;
 	}
 	return (NULL);
 }
 
-/* int main(void)
+/* int	main(int argn, char **argv)
 {
-
+	char	*str = argv[1];
+	char	character = argv[2][0];
+	int	num = argv[3][0] - '0';
+	
+    if (argn > 3)
+	{
+		printf("argumentos -> str '%s' , character '%c' , num '%d' \n"
+			, str, character, num);
+		printf("ft_memchr -> return %s \n", 
+            (char *) ft_memchr(str, character, num));
+	}  
     return (0);
 } */

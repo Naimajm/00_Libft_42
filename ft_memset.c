@@ -6,11 +6,16 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:32:57 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 18:41:25 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 10:50:15 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* 
+Establece cada byte del bloque de memoria al que apunta str en el valor c, 
+hasta una longitud especificada n. Devuelve el puntero str después de modificar
+el bloque de memoria. */
 
 /* escribe 'len' bytes de valor 
 'caracter' en la cadena 'dest' ------------------------------- */
@@ -20,34 +25,34 @@
 /* loop on the temporary variable while we didn't reach len */
 /* in that loop, set the current byte equal to c converted to unsigned char */
 /* return void *b */
-void	*ft_memset(void *dest, int caracter, unsigned int len)
+
+void	*ft_memset(void *dest, int character, unsigned int len)
 {
 	unsigned char	*dest_ptr;
-	unsigned int	indice;
+	unsigned int	index;
 
 	dest_ptr = (unsigned char *)dest;
-	indice = 0;
-	while (indice < len)
+	index = 0;
+	while (index < len)
 	{
-		dest_ptr[indice] = (unsigned char)caracter;
-		indice++;
+		dest_ptr[index] = (unsigned char)character;
+		index++;
 	}
 	return (dest);
 }
 
-/* int main(void)
+/* int	main(int argn, char **argv)
 {
-    char    str1[] = "HolaCara";
-    char    str2[] = "Parapapa";
-    int caracter = 'x';
-    unsigned int len = 3; 
-    unsigned int len2 = 1;   
-
-    printf("test 1 memset %s \n", memset(str1, caracter, len));
-    printf("test 1 %s \n", ft_memset(str1, caracter, len));
-
-    printf("test 2 memset %s \n", memset(str2, caracter, len2));
-    printf("test 2 %s \n", ft_memset(str2, caracter, len2));
-
+	char	*dest = argv[1];
+	char	character = argv[2][0];
+	int	len = argv[3][0] - '0';
+	
+    if (argn > 3)
+	{
+		printf("argumentos -> dest '%s' , character '%c' , len '%d' \n"
+			, dest, character, len);
+		printf("ft_memset -> return %s \n", 
+            (char *)ft_memset(dest, character, len));
+	}  
     return (0);
 } */

@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:44:08 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/29 11:15:46 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 11:46:00 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,16 @@ void	*ft_calloc(unsigned int count, unsigned int size)
 	ft_bzero(ptr, count * size);
 	return (ptr);
 }
+
+/* int	main(int argn, char **argv)
+{
+	unsigned int	count = argv[1][0] -'0';
+	unsigned int	size = argv[2][0] -'0';
+	
+    if (argn > 2)
+	{
+		printf("argumentos -> count '%d' size '%d' \n", count, size);
+		printf("ft_calloc -> return %s \n", (char *)ft_calloc(count, size));
+	}  
+    return (0);
+} */

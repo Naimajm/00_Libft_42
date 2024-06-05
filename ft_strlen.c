@@ -6,42 +6,33 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 14:07:14 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/29 15:18:24 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/04 12:03:33 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// retorna longitud del string
-unsigned int	ft_strlen(const char *string)
+/* Calcula la longitud de una cadena terminada en nulo 'str'. Itera a través 
+de los caracteres de la cadena hasta que encuentra el terminador nulo '', 
+cuenta el número de caracteres de la cadena y devuelve el recuento como la 
+longitud de la cadena. */
+
+unsigned int	ft_strlen(char const *str)
 {
-	int	count;
+	unsigned int	count;
 
 	count = 0;
-	while (string[count] != '\0')
+	while (str[count] != '\0')
 		count++;
 	return (count);
 }
 
-/* void    ft_putchar(char caracter)
+/* int main(int argn, char **argv)
 {
-    write(1, &caracter, 1);
-} */
+    if (argn > 1)
+        printf("ft_strlen '%s' : %d \n", argv[1], ft_strlen(argv[1]));
 
-/* int main(void)
-{
-    char    string1[10] = "HolaCla";
-    char    string2[8] = "Hola";
-
-    ft_putchar(strlen(string1) + '0');
-    ft_putchar('\n');
-    ft_putchar(strlen(string2) + '0');
-    ft_putchar('\n');
-
-    ft_putchar(ft_strlen(string1) + '0');
-    ft_putchar('\n');
-    ft_putchar(ft_strlen(string2) + '0');
-    ft_putchar('\n');
-
+    printf("strlen '%s' : %ld \n", "HolaCla", strlen("HolaCla"));
+    printf("ft_strlen '%s' : %d \n", "HolaCla", ft_strlen("HolaCla"));
     return (0);
 } */

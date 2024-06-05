@@ -6,18 +6,20 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 13:20:14 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 19:09:24 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/04 11:21:23 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* retorna distinto 0 si caracter tiene 
-valor octal entre 0 y 177 (decimal 000 y 127) ---- */
-// tabla valores ascii de control + imprimibles
+/* Comprueba si un carácter está dentro del rango ASCII. Verifica si el 
+carácter tiene un valor ASCII entre 0 y 127 (ascii de control + imprimibles), 
+inclusive. Si el carácter de entrada se encuentra dentro de este rango, la 
+función devuelve un valor distinto de cero; en caso contrario, devuelve 0. */
+
 int	ft_isascii(int caracter)
 {
-	unsigned int	is_ascii;
+	int	is_ascii;
 
 	is_ascii = 0;
 	if (caracter >= 0 && caracter <= 127)
@@ -25,29 +27,12 @@ int	ft_isascii(int caracter)
 	return (is_ascii);
 }
 
-/* void    ft_putchar(char caracter)
+/* int main(int argn, char **argv)
 {
-    write(1, &caracter, 1);
-}
+    if (argn > 1)
+        printf("caracter '%c' : %d \n", argv[1][0], ft_isascii(argv[1][0]));
 
-// no consigo testear con caracter 'ñ'
-int main(void)
-{
-    int caracter1;
-    int caracter2;
-
-    caracter1 = '_';
-    caracter2 = 164;
-
-    ft_putchar(isascii(caracter1) + '0');
-    ft_putchar('\n');
-    ft_putchar(isascii(caracter2) + '0');
-    ft_putchar('\n');
-
-    ft_putchar(ft_isascii(caracter1) + '0');
-    ft_putchar('\n');
-    ft_putchar(ft_isascii(caracter2) + '0');
-    ft_putchar('\n');
-
+    printf("caracter ascii '-': %d \n", ft_isascii('-'));
+    printf("caracter ascii '164': %d \n", ft_isascii(164));
     return (0);
 } */

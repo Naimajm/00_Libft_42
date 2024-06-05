@@ -6,14 +6,13 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 22:01:26 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/01 22:21:17 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 12:36:19 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* 
-Escribe la cadena s en el descriptor de archivo especificado fd. Primero 
+/* Escribe la cadena s en el descriptor de archivo especificado fd. Primero 
 verifica si la cadena s no es nula y luego usa la llamada al sistema de 
 escritura para escribir la cadena completa en el descriptor de archivo. 
 El número de bytes a escribir se calcula mediante el uso de una función 

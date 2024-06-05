@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:11:58 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/27 18:38:42 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/04 13:08:00 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ para acomodar la longitud del src más el carácter NUL	*/
 /* demás */
 /* copia dstsize - 1 carácter en dst */
 
-unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int destsize)
+unsigned int	ft_strlcpy(char *dest, char const *src, unsigned int destsize)
 {
 	unsigned int	index;
 	unsigned int	src_len;
 
 	index = 0;
-	src_len = (unsigned int) ft_strlen(src);
+	src_len = ft_strlen(src);
 	if (destsize != 0)
 	{
-		while ((index < (destsize - 1)) && src[index])
+		while ((src[index] != '\0' && index < (destsize - 1)))
 		{
 			dest[index] = src[index];
 			index++;
@@ -42,3 +42,19 @@ unsigned int	ft_strlcpy(char *dest, const char *src, unsigned int destsize)
 	}
 	return (src_len);
 }
+
+/* int main(int argn, char **argv)
+{
+	char	*dest = argv[1];
+	char	*src = argv[2];
+	unsigned int size = argv[3][0] - '0';
+
+    if (argn > 3)
+	{
+		printf("argumentos -> dest '%s' , src '%s' , size %d \n"
+			, dest, src, size);
+		printf("ft_strlcpy -> return %d , dest : '%s' \n"
+			, ft_strlcpy(dest, src, size), dest);
+	}  
+    return (0);
+} */

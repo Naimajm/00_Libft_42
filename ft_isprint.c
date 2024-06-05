@@ -6,13 +6,17 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 13:53:10 by juagomez          #+#    #+#             */
-/*   Updated: 2024/05/23 18:40:10 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/04 11:19:13 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// retorna distinto 0 si caracter ascii es imprimible (32-126) (espacio - ~)
+/* Determina si un carácter determinado es un carácter imprimible según la tabla
+ ASCII. Considera caracteres imprimibles en el rango de 32 (-) a 126(~), 
+inclusive. Si el carácter de entrada se encuentra dentro de este rango, la 
+función devuelve un valor distinto de cero; en caso contrario, devuelve 0. */
+
 int	ft_isprint(int caracter)
 {
 	int	is_print;
@@ -23,30 +27,12 @@ int	ft_isprint(int caracter)
 	return (is_print);
 }
 
-/* static  void    ft_putchar(char caracter)
+/* int main(int argn, char **argv)
 {
-    write(1, &caracter, 1);
-}*/
+    if (argn > 1)
+        printf("caracter '%c' : %d \n", argv[1][0], ft_isprint(argv[1][0]));
 
-// #include <ctype.h>
-
-/* int main(void)
-{
-    int caracter1;
-    int caracter2;
-
-    caracter1 = 'NULL';
-    caracter2 = 'A';
-
-    ft_putchar(isprint(caracter1) + '0');
-    ft_putchar('\n');
-    ft_putchar(isprint(caracter2) + '0');
-    ft_putchar('\n');
-
-    ft_putchar(ft_isprint(caracter1) + '0');
-    ft_putchar('\n');
-    ft_putchar(ft_isprint(caracter2) + '0');
-    ft_putchar('\n');
-
+    printf("caracter imprimible '~' : %d \n", ft_isprint('-'));
+    printf("caracter imprimible '127' : %d \n", ft_isprint(127));
     return (0);
 } */

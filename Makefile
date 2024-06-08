@@ -39,16 +39,16 @@ OBJ_FILES_BONUS := $(BONUS:%.c= %.o)
 ### RECETAS -----------------------------------------
 # ---------------------------------------------------
 
+# all -> receta predeterminada para crear producto ppal de la compilacion
+# all: $(NAME) clean
+all: $(NAME)
+
 # funcion ppal ->  CREACION ARCHIVO LIBRERIA estatica '.a'
 # opciones 'AR' -r --> reemplazar o agregar archivos al archivo
 # opciones 'AR' -c --> crear el archivo si no existe
 # opciones 'AR' -s --> escribir un índice en el archivo para acelerar búsquedas
 $(NAME): $(OBJ_FILES)
 	ar rcs $(NAME) $(OBJ_FILES)
-
-# all -> receta predeterminada para crear producto ppal de la compilacion
-# all: $(NAME) clean
-all: $(NAME)
 
 # Receta para incorporar a archivo biblitoteca libft.a con archivos bonus
 bonus: ${NAME} ${OBJ_FILES_BONUS}

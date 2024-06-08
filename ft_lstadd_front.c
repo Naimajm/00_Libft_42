@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 19:06:55 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/05 20:38:18 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/06 13:08:57 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ y 'new' se convierte en el nuevo primer elemento actualizando el puntero
 al inicio de la lista existente */
 /* establece puntero de la lista existente para que apunte al nuevo elemento */
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new_node)
 {
-	if (!lst || !new)
+	if (!lst || !new_node)
 		return ;
-	new->next = *lst;
-	*lst = new;
+	new_node->next = *lst;
+	*lst = new_node;
 }
 
 /* static void	ft_print_list(t_list *lst)
 {
 	int	node;
 	node = 0;
-	while (lst)
+	while (lst != NULL)
 	{
 		printf("nodo: %d, contenido: %p \n", node, lst->content);
 		lst = lst->next;
@@ -46,8 +46,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 int	main(void)
 {
 	t_list *new1 = ft_lstnew("str1");
-	t_list *new2 = ft_lstnew("str2");
-
+	t_list *new2 = ft_lstnew("str2"); 
 	printf("new1 content: %p \n", new1->content);
 	printf("new2 content: %p \n", new2->content);
 

@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:55 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/06 12:26:22 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:19:52 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*ft_lstlast(t_list *lst)
 	{
 		lst = lst-> next;
 	}
-	return (lst);	
+	return (lst);
 }
 
 /* static void	ft_print_list(t_list *lst)

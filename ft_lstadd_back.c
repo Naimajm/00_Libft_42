@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 22:17:34 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/06 13:05:47 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:21:23 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,19 @@ y le vincula "new_elem". */
 de la lista para señalar el nuevo elemento */
 /* establece la última->next variable para que apunte al nuevo elemento */
 
-
-void	ft_lstadd_back(t_list **lst, t_list *new_elem)
+void	ft_lstadd_back(t_list **lst, t_list *new_node)
 {
-	t_list	*last_elem;
+	t_list	*last_node;
 
-	 if (!lst || !new_elem)
-	 	return ;	
-	last_elem = ft_lstlast(*lst);
-	if(!last_elem)
-	{
-		*lst = new_elem;
+	if (!lst || !new_node)
 		return ;
-	}	
-	last_elem->next = new_elem;	
+	last_node = ft_lstlast(*lst);
+	if (!last_node)
+	{
+		*lst = new_node;
+		return ;
+	}
+	last_node->next = new_node;
 }
 
 /* static void	ft_print_list(t_list *lst)

@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 13:11:01 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/07 17:01:30 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/07 19:37:08 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 	lst = NULL;
 }
 
-/* void del_string (void *str)
+/* void ft_del_string (void *str)
 {
   if(str)
   {
@@ -82,7 +82,7 @@ static void ft_print_list(t_list *lst)
 	ft_lstadd_back(&node1, node3);
 	ft_print_list(node1);
 
-	ft_lstdelone(node2, del_string);
+	ft_lstdelone(node2, ft_del_string);
 	ft_print_list(node1);
 
 	return(0);

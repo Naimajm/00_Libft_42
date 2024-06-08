@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 20:13:43 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/07 21:51:50 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:57:07 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,14 @@ del nodo actual y el puntero 'lst' se mueve al siguiente nodo de la lista. */
 
 void	ft_lstiter(t_list *lst, void (*function)(void *))
 {
-	t_list	*aux;
-
 	if (!lst || !function)
 		return ;
-	aux = lst;
 	while (lst != NULL)
 	{
-		aux = aux->next;
 		function(lst->content);
-		lst = aux;
+		lst = lst->next;
 	}
-} 
+}
 
 /* static void ft_change_string (void *ptr)
 {

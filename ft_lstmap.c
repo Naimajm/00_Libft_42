@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 21:53:25 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/07 23:05:13 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/07 23:14:27 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*function)(void *), void (*del)(void *))
 		new_node = ft_lstnew(new_content);
 		if (!new_node)
 		{
+			del(new_content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}

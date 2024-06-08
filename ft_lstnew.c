@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 13:10:42 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/05 19:04:51 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/05 22:47:57 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ Finalmente, devuelve un puntero al nodo recién creado. */
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*list;
+	t_list	*node;
 
-	list = (t_list *)malloc(sizeof(t_list));
-	if (!list)
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
 		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
 
 /* int	main(void)

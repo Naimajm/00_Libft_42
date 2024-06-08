@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/05 11:29:02 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/07 22:13:57 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -381,18 +381,108 @@ resultado en el descriptor de archivo especificado.
 */
 void	ft_putnbr_fd(int num, int fd);
 
-// ESTRUCTURAS DATOS -----------------------------------
+// ESTRUCTURAS DATOS -------- ---------------------------
 // ----------------------------------------------------
 
+// NODO -> ESTRUCTURA CON MEMORIA DINAMICA
+// lista vinculada -> estructura autoreferenciada
+// typedef -> sinonimo de tipo de variable ('t_list')
 typedef struct s_list
 {
 	void	*content;
-	struct s_list	*next;
-	
+	struct s_list	*next;	
 }				t_list;
 
 // FUNCIONES LIST  -----------------------------------
 // ----------------------------------------------------
+
+/** 
+* @brief Crea un nuevo elemento de lista vinculada con el contenido 
+proporcionado.
+* @param content: puntero al contenido que se almacenará 
+en el nuevo elemento de la lista.
+* @returns t_list -> Puntero al elemento de lista recién creado (nodo). 
+Si falla la asignación de memoria, la función devuelve NULL.
+*/
+t_list	*ft_lstnew(void *content);
+
+/** 
+* @brief  Cuenta el número de elementos en una lista vinculada.
+Cuenta el número de nodos de una lista.
+* @param lst: puntero al primer elemento de la lista vinculada.
+* @returns int -> Número de elementos de la lista vinculada.
+*/
+int	ft_lstsize(t_list *lst);
+
+/** 
+* @brief Agrega un nuevo elemento al comienzo de una lista vinculada.
+* @param lst: puntero al puntero del primer elemento de la lista.
+* @param new_node: puntero al elemento que se agregará.
+* @returns ninguno -> 
+*/
+void	ft_lstadd_front(t_list **lst, t_list *new_node);
+
+/** 
+* @brief Devuelve un puntero al último elemento de una lista vinculada.
+* @param lst: puntero al primer elemento de la lista.
+* @returns lst -> Puntero al último elemento de la lista. 
+Si la lista está vacía (NULL), la función devuelve NULL.
+*/
+t_list	*ft_lstlast(t_list *lst);
+
+/** 
+* @brief Agrega un nuevo elemento al final de una lista vinculada..
+* @param lst: puntero al puntero del primer elemento de la lista.
+* @param new_node: puntero al elemento que se agregará.
+* @returns ninguno -> 
+*/
+void	ft_lstadd_back(t_list **lst, t_list *new_node);
+
+/** 
+* @brief Desasigna la memoria ocupada por un único elemento de una lista 
+vinculada mientras utiliza una función proporcionada por el usuario para
+liberar el contenido de ese elemento.
+* @param lst: puntero al elemento que se va a desasignar.
+* @param del: puntero de función a la función utilizada para liberar el 
+contenido del elemento.
+* @returns ninguno -> 
+*/
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+
+/** 
+* @brief Desasigna la memoria ocupada por una lista vinculada y sus elementos
+mientras usa una función proporcionada por el usuario para liberar el 
+contenido de cada elemento.
+* @param lst: puntero al primer elemento de la lista.
+* @param del: puntero de función a la función utilizada para liberar el 
+contenido de cada elemento.
+* @returns ninguno -> 
+*/
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/** 
+* @brief Aplica una función determinada a cada elemento de una lista vinculada.
+* @param lst: puntero al primer elemento de la lista.
+* @param function: puntero de función a la función que se aplicará al 
+contenido de cada elemento.
+* @returns ninguno -> 
+*/
+void	ft_lstiter(t_list *lst, void (*function)(void *));
+
+/** 
+* @brief Crea una nueva lista vinculada aplicando una función determinada a 
+cada elemento de una lista vinculada existente. Los elementos transformados
+resultantes se utilizan para formar una nueva lista
+* @param lst: puntero al primer elemento de la lista original.
+* @param function: puntero de función a la función que se aplicará al 
+contenido de cada elemento.
+* @param del: puntero de función a la función utilizada para liberar la 
+memoria del contenido de cada elemento.
+* @returns t_list * -> puntero al primer elemento de la lista recién creada. 
+Si la lista original está vacía o cualquiera de los punteros de función 'f'
+o 'del' es NULL, la función devuelve NULL.
+*/
+t_list	*ft_lstmap(t_list *lst, void *(*function)(void *), void (*del)(void *));
 
 // FUNCIONES PRINT  -----------------------------------
 // ----------------------------------------------------

@@ -68,4 +68,4 @@ fclean: clean
 re: fclean all
 
 # .PHONY -> evita q entienda las recetas como archivo salida. Lo entiende como acciones que siempre se ejecutan, independientemente de la presencia de un archivo con el mismo nombre que el objetivo
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re

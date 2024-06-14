@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/14 12:43:05 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:21:58 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 // LIBRERIAS EXTERNAS -----------------------------------
 // ----------------------------------------------------
 # include <unistd.h>
-# include <stdio.h>
-# include <string.h>
-# include <ctype.h>
+//# include <stdio.h>
+//# include <string.h>
+//# include <ctype.h>
 # include <stdlib.h>
 /* fcntl - manipula el descriptor de fichero fd. La operación en cuestión se 
 determina mediante cmd.  Define las siguientes requests y argumentos para su uso 
 por las funciones fcntl() y open() */
-# include <fcntl.h>
+//# include <fcntl.h>
 
 // FUNCIONES CHECKS-COUNTERS-UTILITIES  -----------------------------------
 // ----------------------------------------------------

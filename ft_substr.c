@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 17:56:34 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/05 12:00:20 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/14 10:26:02 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ necesaria  */
 'start' + index y copiar cada carácter en nuestro nuevo índice de cadena i */
 /* finalmente devolvemos la subcadena */
 
-char	*ft_substr(const char *str, unsigned int start, unsigned int len)
+char	*ft_substr(char const *str, unsigned int start, unsigned int len)
 {
 	unsigned int	str_len;
 	unsigned int	substr_index;

@@ -9,7 +9,7 @@
 # ---------------------------------------------------
 
 # nombre compilador
-CC := cc
+CC := clang
 
 # flags para compilacion
 CFLAGS := -Wall -Wextra -Werror

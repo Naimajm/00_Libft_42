@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:24:19 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/14 10:29:04 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:43:05 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ Rellena con ceros n bytes en string destino.
 * @returns -> puntero al bloque de memoria una vez que 
 se ha llenado.
 */
-void			*ft_bzero(void *dest, unsigned int len);
+void			*ft_bzero(void *dest, size_t len);
 
 /** 
 * @brief Llena un bloque de memoria con un valor específico.
@@ -150,7 +150,7 @@ se devuelve un puntero al bloque de memoria asignado.
 Si el recuento o n es cero o si falla la asignación de memoria, 
 se devuelve NULL.
 */
-void			*ft_calloc(unsigned int count, unsigned int size);
+void			*ft_calloc(size_t count, size_t size);
 
 /** 
 * @brief Duplicar una cadena terminada en nulo (src) asignando 

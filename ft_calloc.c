@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 16:44:08 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/05 11:46:00 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:42:10 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,15 @@ y pone a cero la memoria antes de devolver el puntero a la memoria asignada. */
 /* recorre tmp y establece cada byte en 0 */
 /* devuelve tmp */
 
-void	*ft_calloc(unsigned int count, unsigned int size)
+void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*ptr;
+	void	*ptr;
 
-	ptr = malloc(count * size);
+	ptr = (char *)malloc(count * size);
 	if (!ptr)
 		return (NULL);
 	ft_bzero(ptr, count * size);
-	return (ptr);
+	return ((void *)ptr);
 }
 
 /* int	main(int argn, char **argv)

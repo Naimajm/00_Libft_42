@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 16:54:15 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/05 10:58:27 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:39:05 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ valor 0 al byte actual señalado por dest. */
 /* loop on the temporary pointer while we didn't reach n characters */
 /* in that loop, set the current byte equal to 0 */
 
-void	*ft_bzero(void *dest, unsigned int len)
+void	*ft_bzero(void *dest, size_t len)
 {
-	unsigned char	*dest_ptr;
-	unsigned int	index;
+	char	*dest_ptr;
+	size_t	index;
 
-	dest_ptr = (unsigned char *)dest;
+	dest_ptr = (char *)dest;
 	index = 0;
 	if (len != 0)
 	{
@@ -38,7 +38,7 @@ void	*ft_bzero(void *dest, unsigned int len)
 			index++;
 		}
 	}
-	return (dest);
+	return ((void *)dest);
 }
 
 /* int	main(int argn, char **argv)

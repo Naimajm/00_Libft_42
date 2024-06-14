@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:03:18 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/03 22:04:31 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:43:55 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static char	**ft_split_words(char const *str, char c, char **arr, int w_num)
 		word_len = 0;
 		word_index++;
 	}
-	arr[word_index] = '\0';
+	arr[word_index] = "\0";
 	return ((char **)arr);
 }
 

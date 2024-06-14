@@ -6,7 +6,7 @@
 /*   By: juagomez <juagomez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 18:03:18 by juagomez          #+#    #+#             */
-/*   Updated: 2024/06/14 12:43:55 by juagomez         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:30:48 by juagomez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,23 @@ static char	**ft_split_words(char const *str, char c, char **ar, int w_num);
 
 char	**ft_split(char const *str, char character)
 {
-	unsigned char	**array;
+	char			**array;
 	unsigned int	words_numbers;
 
-	words_numbers = 0;
 	if (!str)
-		return (NULL);
+		return (0);
 	words_numbers = ft_words_count(str, character);
-	array = (unsigned char **)malloc(sizeof(char *) * (words_numbers + 1));
+	array = (char **)malloc(sizeof(char *) * (words_numbers + 1));
 	if (!array)
-		return (NULL);
-	array = (unsigned char **)ft_split_words
+		return (0);
+	array = (char **)ft_split_words
 		(str, character, (char **)array, words_numbers);
 	if (!array)
 	{
-		array = (unsigned char **)ft_free_array((char **)array);
-		return (NULL);
+		array = (char **)ft_free_array((char **)array);
+		return (0);
 	}
-	return ((char **)array);
+	return (array);
 }
 
 // FUNCION DIVIDIR Y ASIGNAR
@@ -93,14 +92,14 @@ static char	**ft_split_words(char const *str, char c, char **arr, int w_num)
 		if (!arr[word_index])
 		{
 			arr = ft_free_array((char **)arr);
-			return (NULL);
+			return (0);
 		}
 		str_index = str_index + word_len;
 		word_len = 0;
 		word_index++;
 	}
-	arr[word_index] = "\0";
-	return ((char **)arr);
+	arr[word_index] = 0;
+	return (arr);
 }
 
 /* LIBERAR RESERVA MEMORIA DE ARRAY DE STRINGS */
